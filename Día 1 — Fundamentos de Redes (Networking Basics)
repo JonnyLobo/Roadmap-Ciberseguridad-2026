@@ -1,0 +1,68 @@
+# Diario de Aprendizaje - Ciberseguridad
+**Inicio:** Noviembre 2025
+**Objetivo:** Analista SOC / Blue Team
+**Estado:** Semana 1 (Fundamentos de Redes)
+
+---
+
+## 📅 Día 1: Fundamentos de Redes y Privacidad (VPN)
+**Concepto Clave:** Entender cómo viajan los datos y cómo se oculta la identidad en la red.
+
+### Aprendizajes:
+1. **Diferencia IP vs Puerto:**
+   - La **IP** es la dirección del edificio (dónde vive el servidor).
+   - El **Puerto** es el número de habitación (qué servicio atiende: web, correo, etc.).
+
+2. **Análisis de Tráfico con VPN (ProtonVPN):**
+   - Realicé un `tracert google.com` con la VPN activa.
+   - **Hallazgo:** El primer salto no fue mi Router local (`192.168.x.x`), sino la IP del túnel VPN (`10.x.x.x`).
+   - **Conclusión de Seguridad:** La VPN "secuestra" el tráfico desde el inicio, ocultando mi ubicación real al proveedor de internet (ISP).
+
+Este módulo documenta mi primer día en el Roadmap hacia Analista SOC / Blue Team.
+Aquí construí los fundamentos de redes que necesito para analizar tráfico, detectar intrusiones y entender cómo se mueve un atacante dentro de una red.
+
+🧠 Conceptos clave aprendidos
+✔ Dirección IP
+Identificador único de un dispositivo en la red.
+✔ Máscara de subred
+Determina cuántos hosts caben en una red.
+✔ Puerta de enlace (Gateway)
+Ruta por la que salen los dispositivos hacia otras redes.
+
+🌍 Analogía del “Barrio” (Subredes explicadas)
+Una subred es un barrio:
+La dirección del barrio → 192.168.1.0/24
+Cada casa → una IP (192.168.1.10, 192.168.1.20, etc.)
+La calle principal por donde entra y sale todo → el Gateway (192.168.1.1)
+El tamaño del barrio depende del /CIDR
+/24 = barrio de 254 casas
+/16 = ciudad más grande
+/8 = enorme población
+Esta analogía me permite visualizar redes con claridad y evitó confusiones.
+
+🖥️ Cómo ver tu IP (Kali y Windows)
+🔹 Kali Linux
+ip a
+🔹 Windows
+ipconfig
+
+🛠️ Configuración de VMs en Bridged (VMware)
+En este día aprendí a:
+Configurar VMnet0 en modo Puente (Bridged)
+Seleccionar la tarjeta física correcta (Ethernet real)
+Evitar NAT o redes aisladas
+Lograr que todas las máquinas estén en la misma subred (192.168.1.x)
+Esto es esencial para capturar tráfico real entre VMs.
+
+🧪 Resultados del Día 1
+
+Red funcional 192.168.1.0/24
+Kali → 192.168.1.107
+Windows VM → 192.168.1.103
+Entendimiento sólido de IP, máscaras, gateway, subredes
+Laboratorio listo para análisis de tráfico
+
+📂 Archivos incluidos
+ip_kali_output.png
+ip_windows_output.png
+vmware_bridged_explanation.md
