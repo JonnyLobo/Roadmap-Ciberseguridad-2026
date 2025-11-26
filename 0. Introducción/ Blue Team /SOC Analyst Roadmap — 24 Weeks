@@ -1,0 +1,72 @@
+# 🚀 Blue Team / SOC Analyst Roadmap — 24 Weeks  
+**Autor:** Jonny Lobo 
+**Objetivo:** Convertirme en Analista SOC / Blue Team Jr con un portafolio técnico sólido en redes, análisis de tráfico, escaneo, SIEM y automatización.
+
+Este repositorio documenta mi progreso semana a semana, con laboratorios reales, capturas, análisis de paquetes, herramientas, reportes, scripts y configuraciones de entorno.  
+Cada módulo contiene explicación conceptual + práctica + evidencia (Wireshark, Nmap, VMs, logs, scripts, PCAPs, screenshots).
+
+---
+
+## 🧠 ¿Qué vas a encontrar en este repositorio?
+
+- Configuración de un laboratorio profesional con VMs en bridged  
+- Análisis de tráfico con Wireshark (SYN scans, TCP flags, filtrado, puertos)  
+- Escaneos con Nmap y lectura de resultados  
+- Entendimiento profundo de redes (IP, máscaras, gateway, subredes)  
+- Reconocimiento activo y pasivo  
+- Interpretación de puertos (open / closed / filtered)  
+- Creación de PCAPs para entrenamiento SOC  
+- Documentación profesional estilo Blue Team  
+
+---
+
+## 📂 Estructura del repositorio
+
+- `Day01_Networking/` – Fundamentos de Redes  
+- `Day02_Scanning_Wireshark/` – Nmap + Wireshark (primeros escaneos y capturas)  
+- `LabSetup/` – Configuración de laboratorio VMware + red bridged  
+- `Tools/` – Cheatsheets y documentación rápida  
+
+---
+
+## 🧪 ¿Qué estoy aprendiendo en este roadmap?
+
+- Redes a nivel profesional  
+- Análisis de paquetes (Wireshark)  
+- Escaneo y reconocimiento (Nmap)  
+- Interpretación de puertos y servicios  
+- Técnicas de detección de amenazas  
+- Configuración segura de máquinas  
+- Documentación profesional estilo SOC  
+- Pensamiento analítico para alertas y tráfico sospechoso  
+
+---
+
+## 🔥 Habilidades demostradas hasta ahora
+
+- Entender redes sin miedo  
+- Interpretar IP / máscara / gateway  
+- Crear laboratorios reales sobre VMware  
+- Habilitar y corregir bridged networking  
+- Capturar SYN packets y tráfico TCP  
+- Ejecutar escaneos profesionales  
+- Diferenciar tráfico legítimo del malicioso  
+- Crear PCAPs para análisis  
+- Documentar con calidad profesional  
+
+---
+
+## 🎯 Objetivo Final
+
+Al finalizar, este repositorio mostrará:
+
+- Más de 50 laboratorios reales  
+- Análisis de tráfico  
+- Scripts defensivos  
+- Prácticas SOC  
+- Casos MITRE ATT&CK  
+- Dashboards de logs  
+- Configuraciones de SIEM  
+- Respuestas a incidentes simulados  
+
+Todo diseñado para demostrar **nivel empleable como Analista SOC Jr**.
