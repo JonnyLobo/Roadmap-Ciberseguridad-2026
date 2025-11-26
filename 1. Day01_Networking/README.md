@@ -1,3 +1,4 @@
+Día 1 — Fundamentos de Redes (Networking Basics)
 # Diario de Aprendizaje - Ciberseguridad
 **Inicio:** Noviembre 2025
 **Objetivo:** Analista SOC / Blue Team
