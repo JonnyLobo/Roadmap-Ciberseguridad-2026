@@ -98,7 +98,6 @@ Nmap detecta “filtered”
 Este comportamiento es típico de sistemas modernos protegidos.
 
 📊 Wireshark — ¿Qué observé?
-
 ✔ SYN desde Kali → Windows
 ✔ Tráfico HTTPS legítimo desde Windows hacia Internet
 ✔ Paquetes filtrados
