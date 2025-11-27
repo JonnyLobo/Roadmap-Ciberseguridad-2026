@@ -44,6 +44,7 @@ Esta analogía me permite visualizar redes con claridad y evitó confusiones.
 🖥️ Cómo ver tu IP (Kali y Windows)
 🔹 Kali Linux
 ip a
+
 🔹 Windows
 ipconfig
 
@@ -56,7 +57,6 @@ Lograr que todas las máquinas estén en la misma subred (192.168.1.x)
 Esto es esencial para capturar tráfico real entre VMs.
 
 🧪 Resultados del Día 1
-
 Red funcional 192.168.1.0/24
 Kali → 192.168.1.107
 Windows VM → 192.168.1.103
