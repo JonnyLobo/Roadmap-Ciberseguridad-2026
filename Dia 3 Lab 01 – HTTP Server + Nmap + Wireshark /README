@@ -1,0 +1,88 @@
+# 📘 Quiz Día 3 – TCP, Nmap y Wireshark
+Objetivo: Evaluar conocimiento del flujo TCP, escaneo Nmap y análisis de tráfico.
+
+1. ¿Qué es un puerto en redes?
+Un puerto es un identificador lógico que permite asociar un flujo de datos a un servicio o aplicación específica dentro de un dispositivo.  
+Ejemplo: 80 = HTTP, 22 = SSH, 443 = HTTPS.
+
+2. ¿Qué son los flags SYN y ACK en TCP?**
+Son banderas que controlan la conexión.  
+- SYN** inicia la comunicación y sincroniza secuencias.  
+- ACK** confirma que un paquete fue recibido exitosamente.  
+Cuando aparecen juntos (**SYN/ACK**) significa que la conexión fue aceptada.
+
+3. ¿Qué indica recibir SYN/ACK desde un host?
+Que el puerto está abierto y acepta conexiones.
+Es la forma más clara de un "OK, entra" en TCP.
+
+4. ¿Qué comando se usa para levantar un servidor web local en Windows (Python 3)?
+powershell
+python -m http.server 8080
+Esto abre HTTP sobre el puerto 8080 y permite ser accedido desde otra máquina.
+
+5. ¿Qué comando escanea un puerto específico con Nmap?
+nmap -sS -Pn IP -p PUERTO
+Ejemplo usado en el laboratorio:
+nmap -sS -Pn 192.168.1.104 -p 8080
+
+6. ¿Qué filtro muestra solo tráfico del puerto 8080 en Wireshark?
+tcp.port == 8080
+Filtros alternativos útiles:
+http && tcp.port==8080
+tcp.flags.syn==1
+
+7. ¿Qué significa si no ves SYN/ACK en el escaneo?
+Puede significar:
+Posible estado	Síntoma
+Puerto cerrado	Responde RST o RST/ACK
+Filtrado por firewall	No responde nada
+Host inaccesible	Sin paquetes de retorno
+
+
+8. ¿Qué flag indica respuesta positiva de conexión?
+✔ SYN/ACK = puerto abierto
+
+9. ¿Qué flag verías si el puerto está cerrado?
+RST o RST/ACK → indica rechazo de conexión.
+
+10. ¿Qué comando genera tráfico real para analizarlo en Wireshark?
+curl http://IP:8080
+
+Ejemplo real ejecutado:
+curl http://192.168.1.104:8080
+
+Hoy aprendiste y practicaste:
+• Cómo detectar servicios en red usando Nmap con SYN Scan (sS) + sin ping (Pn)
+• Qué significa cada respuesta TCP (SYN/ACK = abierto, RST = cerrado, silencio = filtrado)
+• Cómo levantar un servidor HTTP real en Windows para usarlo como target de análisis
+• Cómo capturar, filtrar y visualizar tráfico con Wireshark, incluyendo TCP Handshake + HTTP
+• Cómo convertir un laboratorio en material profesional para GitHub y CV
+
+Este día marca tu primer lab práctico SOC-Blue Team real, con evidencia técnica verificable.
+A partir de ahora, todo tu avance será incremental y cada día construye el perfil que queremos.
+✔ Resultado del Día 3
+Hoy entendí y practique:
+🧠 TCP handshake (SYN → SYN/ACK → ACK)
+🧠 Puertos y estados (abierto / cerrado / filtrado)
+⚡ Escaneo manual con Nmap
+👁‍🗨 Inspección de tráfico real en Wireshark
+🌍 Acceso HTTP entre Windows ↔ Kali
+📄 Y genere material profesional para tmi portfolio
+
+ Lab 01 – HTTP Server + Nmap + Wireshark (Día 3)
+📍 Objetivo
+Detectar un servicio web en Windows usando Kali + Nmap + Wireshark.
+🧪 Entorno del laboratorio
+SistemaIPRolWindows 11192.168.1.104Servidor HTTP puerto 8080Kali Linux192.168.1.107Cliente + analista
+🔧 Pasos ejecutados
+python -m http.server 8080
+
+nmap -sS -Pn 192.168.1.104 -p 8080
+curl http://192.168.1.104:8080
+
+📈 Resultados
+ComponenteEvidenciaPuerto abiertoSYN/ACK recibidoRespuesta HTTPCódigo 200 OKWiresharkHandshake + GET capturado
+📎 Se adjunta PCAP + capturas en /labs/screenshots
+🧠 Conclusión
+Se levantó un servicio, se detectó mediante escaneo y se analizó su tráfico.
+Esto simula el comportamiento de un SOC detectando un servicio expuesto.
