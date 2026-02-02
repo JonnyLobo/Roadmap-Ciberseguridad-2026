@@ -1,29 +1,18 @@
-Laboratorio — Configuración del Entorno SOC
-Esta carpeta contiene toda la documentación relacionada con la configuración técnica del laboratorio.
+# 🏗️ Arquitectura de Laboratorio SOC (Home Lab)
 
-🧱 Componentes del laboratorio
-Kali Linux (ATACANTE / ANALISTA)
-Windows 11 VM (VICTIMA)
-Windows Host (MÁQUINA FÍSICA)
-VMware Workstation (BRIDGED)
+## Resumen Ejecutivo
+Despliegue de un entorno virtualizado controlado (Sandbox) para la simulación de ataques (Red Team) y monitoreo de seguridad (Blue Team). El entorno replica una red corporativa segmentada utilizando VMware Workstation en modo Bridged para interactuar con dispositivos reales.
 
-🏗️ Configuración de red (Bridged)
-La red está configurada para replicar un entorno real:
-Router:        192.168.1.1
-Host Físico:   192.168.1.101
-Windows VM:    192.168.1.103
-Kali VM:       192.168.1.107
+## 🔧 Especificaciones Técnicas
 
-Todas las máquinas están en la misma subred /24.
-🧩 Problemas solucionados
-NAT habilitado accidentalmente
-VM aislada en red privada
-VMnet0 usando adaptador equivocado
-Corrección seleccionando Realtek PCIe GbE Controller
-Firewall de Windows bloqueando ping (requiere -Pn)
+| Rol | SO / Activo | Dirección IP (Estática) | Función |
+| :--- | :--- | :--- | :--- |
+| **Atacante** | Kali Linux 2024.x | `192.168.1.107` | Ejecución de escaneos (Nmap) y explotación. |
+| **Víctima** | Windows 11 Enterprise | `192.168.1.103` | Endpoint monitoreado para logs de eventos. |
+| **Gateway** | Router Físico | `192.168.1.1` | Salida a internet y gestión de tráfico. |
 
-📂 Archivos incluidos
-vmware_bridged_setup.md
-vm_network_diagram.png
-
-notes.md
+## 🛠️ Resolución de Problemas (Troubleshooting)
+Durante la implementación se resolvieron los siguientes conflictos de red:
+* **Aislamiento de Red:** Se migró de NAT a **Bridged Mode** para permitir visibilidad directa entre el host atacante y la víctima.
+* **Gestión de Interfaces:** Corrección manual del adaptador `VMnet0` apuntando al controlador Realtek PCIe para evitar conflictos de drivers.
+* **Reglas de Firewall:** Se ajustaron las reglas de entrada ICMP en Windows Defender para permitir la detección de host (Ping) durante las pruebas de conectividad.
